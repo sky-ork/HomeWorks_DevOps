@@ -20,12 +20,14 @@ cnt_ask = 0
 print('-' * 40)
 while cnt_ask < 100:
     if cnt_ask == 0:
+        # We get and output the first result without comparing the IP
         url_ip_dict = get_url_ip(sys.argv)
         for item_key in url_ip_dict.keys():
             result = item_key + " - " + url_ip_dict[item_key]
             print(result)
         url_ip_dict_coll = url_ip_dict
     else:
+        # We get and output the result after comparing the IP
         url_ip_dict = get_url_ip(sys.argv)
         for item_key in url_ip_dict.keys():
             if url_ip_dict[item_key] == url_ip_dict_coll[item_key]:
