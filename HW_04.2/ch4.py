@@ -30,8 +30,6 @@ def get_url_ip(url_dict):
     return dict(url_ip)
 
 
-
-
 cnt_ask = 0
 print('-' * 40)
 while 1 == 1:
