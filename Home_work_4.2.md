@@ -45,7 +45,7 @@
 
    ```
    
-1. 
+1. Результат:
 
    ```python
    #!/usr/bin/env python3
