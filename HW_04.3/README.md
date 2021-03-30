@@ -3,7 +3,7 @@
 1. Исправленный JSON:
 
    ```json
-   { "info" : "Sample JSON output from our service\t",
+   { "info" : "Sample JSON output from our service",
        "elements" :[
            { "name" : "first",
            "type" : "server",
