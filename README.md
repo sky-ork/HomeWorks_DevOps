@@ -1,5 +1,6 @@
-# Test_DevOps
+# Домашние задания Netology DevOps
 
-## Test console .. OK
+---
 
-
+- [Домашнее задание к занятию "4.2. Использование Python для решения типовых DevOps задач"](HW_04.2/README.md)
+- [Домашнее задание к занятию "4.3. Языки разметки JSON и YAML"](HW_04.3/README.md)
