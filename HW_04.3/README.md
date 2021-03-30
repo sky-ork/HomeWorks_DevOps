@@ -43,13 +43,13 @@
            if check_url(url_dict[count]) == 0:
                # Checking the availability of an existing URL and
                # and form an array
-               r = False
-               while r == False:
+               r = 0
+               while r == 0:
                    try:
                        url_ip[str(url_dict[count])] = socket.gethostbyname(str(url_dict[count]))
-                       r = True
+                       r = 1
                    except Exception:
-                       r = False
+                       r = 0
        return dict(url_ip)
    
    
@@ -100,12 +100,12 @@
                             + url_ip_dict[item_key]
                    print(result)
                    url_ip_dict_coll = url_ip_dict
-                   services_dict = {"Services": url_ip_dict}
                    out_service(url_ip_dict, "ch2_services.json", "ch2_services.yaml")
        print('-' * 40)
+
    ```
 ---
-#### Результат выполнения скрипта с входными данными: `./ch2.py drive.google.com mail.google.com google.com
+#### Результат выполнения скрипта с входными данными: `./ch2.py drive.google.com mail.google.com google.com`
 
 JSON-файл: 
    ```json
