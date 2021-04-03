@@ -108,7 +108,7 @@
 ---
 #### Результат выполнения скрипта с входными данными: `./ch2.py drive.google.com mail.google.com google.com`
  - стандартный вывод:
-   ```
+   ```shell
    $ ./ch2.py drive.google.com mail.google.com google.com
    ----------------------------------------
    drive.google.com - 173.194.222.194
