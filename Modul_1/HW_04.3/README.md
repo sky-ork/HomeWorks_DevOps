@@ -107,26 +107,45 @@
    ```
 ---
 #### Результат выполнения скрипта с входными данными: `./ch2.py drive.google.com mail.google.com google.com`
-
-JSON-файл: 
+ - стандартный вывод:
+   ```
+   $ ./ch2.py drive.google.com mail.google.com google.com
+   ----------------------------------------
+   drive.google.com - 173.194.222.194
+   mail.google.com - 108.177.14.19
+   google.com - 64.233.161.101
+   ----------------------------------------
+   drive.google.com - 173.194.222.194
+   mail.google.com - 108.177.14.19
+   ----------------------------------------
+   drive.google.com - 173.194.222.194
+   mail.google.com - 108.177.14.19
+   [ERROR] google.com IP mismatch: 64.233.161.101 --> 64.233.164.102
+   ----------------------------------------
+   drive.google.com - 173.194.222.194
+   mail.google.com - 108.177.14.19
+   google.com - 64.233.164.102
+   ----------------------------------------   
+   ```
+ - JSON-файл:
    ```json
    [
      {
-       "drive.google.com": "173.194.73.194"
+       "drive.google.com": "173.194.222.194"
      },
      {
-       "mail.google.com": "142.250.150.83"
+       "mail.google.com": "108.177.14.19"
      },
      {
-       "google.com": "64.233.165.100"
+       "google.com": "64.233.164.102"
      }
    ]
    ```
 
-YAML-файл:
+ - YAML-файл:
    ```yaml
    ---
-   - drive.google.com: 173.194.73.194
-   - mail.google.com: 142.250.150.83
-   - google.com: 64.233.165.100
+   - drive.google.com: 173.194.222.194
+   - mail.google.com: 108.177.14.19
+   - google.com: 64.233.164.102
    ```
