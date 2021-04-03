@@ -3,17 +3,20 @@
 1. Исправленный JSON:
 
    ```json
-   { "info" : "Sample JSON output from our service",
-       "elements" :[
-           { "name" : "first",
-           "type" : "server",
-           "ip" : "71.75.23.15"
-           },
-           { "name" : "second",
-           "type" : "proxy",
-           "ip" : "71.78.22.43"
-           }
-       ]
+   {
+     "info": "Sample JSON output from our service",
+     "elements": [
+       {
+         "name": "first",
+         "type": "server",
+         "ip": "71.75.23.15"
+       },
+       {
+         "name": "second",
+         "type": "proxy",
+         "ip": "71.78.22.43"
+       }
+     ]
    }
    ```
 1. Результат:
@@ -61,17 +64,15 @@
        services_dict = [dict([i]) for i in services_list]
        with open(str(file_json), "w") as js:
            js.write(json.dumps(services_dict, indent=2))
-           js.close()
        with open(str(file_yaml), "w") as ym:
            ym.write(yaml.dump(services_dict, indent=2,
                               explicit_start=True,
                               sort_keys=False))
-           ym.close()
    
    
    cnt_ask = 0
    print('-' * 40)
-   while 1 == 1:
+   while True:
        if cnt_ask == 0:
            # We get and output the first result without comparing the IP
            url_ip_dict = get_url_ip(sys.argv)

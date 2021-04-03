@@ -48,7 +48,7 @@ def out_service(in_services_dict, file_json, file_yaml):
 
 cnt_ask = 0
 print('-' * 40)
-while 1 == 1:
+while True:
     if cnt_ask == 0:
         # We get and output the first result without comparing the IP
         url_ip_dict = get_url_ip(sys.argv)
