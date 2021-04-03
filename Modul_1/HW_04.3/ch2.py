@@ -14,18 +14,18 @@ def check_url(url):
 
 # The function returns an array of the dictionary type in the form
 # {<URL>: <IP>,....}. Argument: an array of the URL list type.
-def get_url_ip(url_dict):
+def get_url_ip(url_list):
     url_ip = {}
-    len_url_dict = len(url_dict)
-    for count in range(len_url_dict):
+    len_url_list = len(url_list)
+    for count in range(len_url_list):
         # Checking the existence of a URL
-        if check_url(url_dict[count]) == 0:
+        if check_url(url_list[count]) == 0:
             # Checking the availability of an existing URL and
             # and form an array
             r = 0
             while r == 0:
                 try:
-                    url_ip[str(url_dict[count])] = socket.gethostbyname(str(url_dict[count]))
+                    url_ip[str(url_list[count])] = socket.gethostbyname(str(url_list[count]))
                     r = 1
                 except Exception:
                     r = 0
@@ -40,12 +40,10 @@ def out_service(in_services_dict, file_json, file_yaml):
     services_dict = [dict([i]) for i in services_list]
     with open(str(file_json), "w") as js:
         js.write(json.dumps(services_dict, indent=2))
-        js.close()
     with open(str(file_yaml), "w") as ym:
         ym.write(yaml.dump(services_dict, indent=2,
                            explicit_start=True,
                            sort_keys=False))
-        ym.close()
 
 
 cnt_ask = 0
