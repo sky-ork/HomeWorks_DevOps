@@ -46,13 +46,12 @@
            if check_url(url_list[count]) == 0:
                # Checking the availability of an existing URL and
                # and form an array
-               r = 0
-               while r == 0:
+               while True:
                    try:
                        url_ip[str(url_list[count])] = socket.gethostbyname(str(url_list[count]))
-                       r = 1
+                       break
                    except Exception:
-                       r = 0
+                       continue
        return dict(url_ip)
    
    
@@ -84,13 +83,12 @@
            cnt_ask = 1
        else:
            # We get and output the result after comparing the IP
-           cnt_r = 0
-           while cnt_r == 0:
+           while True:
                try:
                    url_ip_dict = get_url_ip(sys.argv)
-                   cnt_r = 1
+                   break
                except Exception:
-                   cnt_r = 0
+                   continue
            for item_key in url_ip_dict.keys():
                if url_ip_dict[item_key] == url_ip_dict_coll[item_key]:
                    result = item_key + " - " + url_ip_dict[item_key]
@@ -103,7 +101,6 @@
                    url_ip_dict_coll = url_ip_dict
                    out_service(url_ip_dict, "ch2_services.json", "ch2_services.yaml")
        print('-' * 40)
-
    ```
 ---
 #### Результат выполнения скрипта с входными данными: `./ch2.py drive.google.com mail.google.com google.com`
@@ -111,33 +108,38 @@
    ```shell
    $ ./ch2.py drive.google.com mail.google.com google.com
    ----------------------------------------
-   drive.google.com - 173.194.222.194
-   mail.google.com - 108.177.14.19
-   google.com - 64.233.161.101
+   drive.google.com - 142.250.150.194
+   mail.google.com - 64.233.165.18
+   google.com - 64.233.162.102
    ----------------------------------------
-   drive.google.com - 173.194.222.194
-   mail.google.com - 108.177.14.19
+   drive.google.com - 142.250.150.194
+   mail.google.com - 64.233.165.18
+   google.com - 64.233.162.102
    ----------------------------------------
-   drive.google.com - 173.194.222.194
-   mail.google.com - 108.177.14.19
-   [ERROR] google.com IP mismatch: 64.233.161.101 --> 64.233.164.102
+   [ERROR] drive.google.com IP mismatch: 142.250.150.194 --> 74.125.205.194
+   mail.google.com - 64.233.165.18
+   google.com - 64.233.162.102
    ----------------------------------------
-   drive.google.com - 173.194.222.194
-   mail.google.com - 108.177.14.19
-   google.com - 64.233.164.102
+   [ERROR] drive.google.com IP mismatch: 74.125.205.194 --> 64.233.165.194
+   mail.google.com - 64.233.165.18
+   google.com - 64.233.162.102
+   ----------------------------------------
+   drive.google.com - 64.233.165.194
+   mail.google.com - 64.233.165.18
+   google.com - 64.233.162.102
    ----------------------------------------   
    ```
  - JSON-файл:
    ```json
    [
      {
-       "drive.google.com": "173.194.222.194"
+       "drive.google.com": "64.233.165.194"
      },
      {
-       "mail.google.com": "108.177.14.19"
+       "mail.google.com": "64.233.165.18"
      },
      {
-       "google.com": "64.233.164.102"
+       "google.com": "64.233.162.102"
      }
    ]
    ```
@@ -145,7 +147,7 @@
  - YAML-файл:
    ```yaml
    ---
-   - drive.google.com: 173.194.222.194
-   - mail.google.com: 108.177.14.19
-   - google.com: 64.233.164.102
+   - drive.google.com: 64.233.165.194
+   - mail.google.com: 64.233.165.18
+   - google.com: 64.233.162.102
    ```
