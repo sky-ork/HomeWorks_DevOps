@@ -1,7 +1,8 @@
 #!/usr/bin/env python3
 import os
 
-bash_command = ["cd ~/PycharmProjects/Test_DevOps/Test_DevOps", "git status"]
+repo_path = "~/PycharmProjects/HomeWorks_DevOps/HomeWorks_DevOps"
+bash_command = ["cd " + repo_path, "git status"]
 result_os = os.popen(' && '.join(bash_command)).read()
 for result in result_os.split('\n'):
     if result.find('изменено') != -1:
